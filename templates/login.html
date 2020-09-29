@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+      <head>
+         <style>
+            .output {
+               Font: 1rem 'Fira Sans', sans-siref;
+            }
+			fieldset {
+			  width: 33%;
+			}
+            fieldset input {
+              margin: 1rem 0;
+              width: 61%;
+            }
+			input.alone {
+			  margin: 1rem 0;
+			  width: 21%;
+			}
+            label {
+              display: in-block;
+              width: 20%
+            }
+            input:invalid:not(:placeholder-shown) + span:after {
+              content: '✖ (bad number)';
+              color: #ff0000;
+              padding-left: 5px;
+            }
+            input:valid + span:after {
+              content: '✓ (good number)';
+              color: #228b22;
+              padding-left: 5px;
+            }
+         </style>
+
+         <title>Bulldog Banking</title>
+      </head>
+  <body>
+    <h1>Login</h1>
+    <form method = "post">
+	  <fieldset>
+        <label for="username">Username</label><br>
+	    <input type="text" id="username" name="username" placeholder="username" required>
+	    <span class = "validity"></span>
+        <br>
+	    <label for="password">Password</label><br>
+	    <input type="text" id="password" name="password" placeholder="********" required>
+		<span class = "validity"></span>
+        <br><br>
+
+		<input type="submit" value="Submit">
+     </fieldset>
+   </form>
+   </body>
+</html>
