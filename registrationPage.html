@@ -22,12 +22,12 @@
               width: 20%
             }
             input:invalid:not(:placeholder-shown) + span:after {
-              content: '✖ (bad number)';
+              content: '✖';
               color: #ff0000;
               padding-left: 5px;
             }
             input:valid + span:after {
-              content: '✓ (good number)';
+              content: '✓';
               color: #228b22;
               padding-left: 5px;
             }
@@ -37,7 +37,8 @@
       </head>
   <body>
     <h1>Register</h1>
-    <form method = "post" action = "">
+    <form method = "post" action = "homePage.html">
+	{% csrf_token %}
       <fieldset>
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" placeholder="John" pattern="[A-z]{1,}" required>
