@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def home (request):
-    return HttpResponse('Main homepage')
+    return render(request, 'homePage.html')
