@@ -10,4 +10,6 @@ urlpatterns = [
     path('users/register/', include('users.urls')),
     path('users/login/', include('users.urls')),
     path('users/signup/', include('users.urls')),
+    path('users/landing/', include('users.urls')),
+    path('users/logout/', include('users.urls'))
 ]
