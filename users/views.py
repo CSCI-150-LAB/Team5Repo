@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Userinfo
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.views.generic import View
-#from .forms import Userform
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
+
 
 def register(request):
+
     if request.method == 'POST':
         post = Userinfo()
         post.fname = request.POST.get('fname')
@@ -19,10 +19,11 @@ def register(request):
         post.phone = request.POST.get('phone number')
         post.email = request.POST.get('email')
         post.save()
-        return render(request, 'register.html')  # will go to login page
+        return render(request, 'register.html')
 
     else:
         return render(request, 'register.html')
+
 
 def signup_(request):
 
@@ -36,6 +37,7 @@ def signup_(request):
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
 
+
 def login_(request):
 
     if request.method == 'POST':
@@ -43,13 +45,22 @@ def login_(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return HttpResponse("logged in")
         else:
             return render(request, 'login.html', context={'form': form})
+        return redirect('/users/landing')
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', context={'form': form})
 
+
+def logout_(request):
+    logout(request)
+    return redirect('home')
+
+
+def landingpage(request):
+    #need to check if user is logged in w/possibly: if request.user.is_authenticated:
+    return render(request, 'landing.html')
 
 def index(request):
     return HttpResponse("Users Homepage")
