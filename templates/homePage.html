@@ -1,0 +1,171 @@
+{% load static %}
+<html>
+  <head>
+    <title>Home Page</title>
+	<style>
+	  *{
+	    margin: 0;
+		padding: 0;
+	  }
+	  div#banner {
+	    position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgb(201, 45, 57);
+        width: 100%;
+		height: 75px;
+	  }
+
+	  div#banner-content {
+	    width: 800px;
+		height: 60px;
+		margin: 0 auto;
+		padding: 10px;
+		text-align: center;
+		font-size: 40;
+		color: white;
+	  }
+	  body {
+	    background-color: rgb(0,0,238);
+	  }
+	  div#main-content {
+	    padding-top: 70px;
+	  }
+	  form {
+	    text-align: center;
+		display: inline-block;
+		vertical-align: top;
+	  }
+	  fieldset{
+	    background-color: rgb(201, 45, 57);
+		border-color: rgba(201,45,57,0);
+		width: 200px;
+		height: 225px;
+		margin: 0 auto auto 10;
+		padding-top: 10px
+	  }
+	  input{
+	    text-align: center;
+	    height: 30px;
+	  }
+	  input#submit {
+	    width: 100px;
+	  }
+	  ::placeholder {
+	    color: black;
+		opacity: 1;
+	  }
+	  img#bulldog {
+	    width: 600px ;
+		height: 380px ;
+		float: center;
+		padding-left: 500px;
+		padding-top: 0px;
+		display: inline-block;
+	  }
+	  a {
+	    color: black;
+	  }
+	  table, tr, td {
+	    margin-left: auto;
+		margin-right: auto;
+	    width: 600px;
+		height: 75px;
+		float: center;
+	    border: 1px solid white;
+		background-color: red;
+	    border-collapse: collapse;
+		font-size: 20px;
+		text-align: center;
+	  }
+	  h1 {
+	    color:white;
+		text-align: center;
+	  }
+	  #head{
+	    background-color: orange;
+	  }
+	  #data {
+	    color: white;
+	  }
+	  #data2 {
+	    background-color: rgb(255,143,128);
+		color: white;
+	  }
+	</style>
+  </head>
+
+  <body>
+    <h1>Create a Post </h1>
+	<div id="banner">
+	  <div id="banner-content">
+	  Bulldog Banking
+	  </div>
+	</div>
+	<div id="main-content">
+
+	</div>
+	<form method = "post" action = "homePage.html">
+	  <fieldset>
+		<input type="text" id="username" name="username" placeholder="Username" required><br><br>
+		<input type="password" id="password" name="password" placeholder="Password" required><br><br>
+        <input type="submit" id="submit" value="Sign In"><br><br>
+        <a href="help.html" >Forgot Username/Password?</a><br><br>
+          <input type="button" id="submit" onclick="location.href= '/users/login';" value="Log In"><br><br>
+		<input type="button" id="submit" onclick="location.href='/users/signup';" value="Sign Up">
+	  </fieldset>
+    </form>
+     <img src= "{% static "images/Bulldogslogo.png" %}" id="bulldog" alt=""><br><br><br><br>
+
+	<table>
+	  <tr>
+	    <td colspan="2" id="data">Bulldog's Credit Card</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Cash back percentage on all purchases</td>
+		<td id="data">5.00%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">APR percent</td>
+		<td id="data">10-15%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Annual Fee</td>
+		<td id="data">$0</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Late Fee</td>
+		<td id="data">$5</td>
+	  </tr>
+	</table><br><br>
+	<h1>Check Out Our Savings</h1><br>
+	<table>
+	  <tr>
+	    <td id="head"></td>
+		<td id="data">Bulldog Savings Account</td>
+		<td id="data">Wells Fargo Savings Account</td>
+		<td id="data">Capital One Savings Account</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Annual Percentage Yield (APY)</td>
+		<td id="data">5.00%</td>
+		<td id="data2">0.01%</td>
+		<td id="data2">0.50%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Interest Compounded</td>
+		<td id="data">Daily</td>
+		<td id="data2">Monthly</td>
+		<td id="data2">Monthly</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Monthly Fees</td>
+		<td id="data">$0</td>
+		<td id="data2">$5</td>
+		<td id="data2">$0</td>
+	  </tr>
+	</table>
+
+  </body>
+
+</html>
