@@ -1,8 +1,18 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" ></link>
+
+
+<nav class=" navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class=" navbar-brand" href= "{% url 'home'%}"> Bulldog Banking</a>
+        </div>
+    <ul class="nav navbar-nav navbar-right">
+            <a class=" navbar-brand" href= "{% url 'logout'%}"> Logout</a>
+           </ul>
+    </div>
+</nav>
 
 {% block title %} <h1> Landing page</h1> {% endblock %}
-{% block content %}
-
-<h3> Hello {{user.username}} </h3>
-<a href="/users/logout" > Logout </a><br><br>
+{% block content %}<h5> Hello {{user.username}} </h5>
 
 {% endblock %}
