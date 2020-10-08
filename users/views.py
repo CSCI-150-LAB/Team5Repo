@@ -33,6 +33,8 @@ def signup_(request):
             form.save()
 
             return redirect('login')
+        else:
+            return render(request, 'signup.html', {'form': form})
     else:
         form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
@@ -59,8 +61,10 @@ def logout_(request):
 
 
 def landingpage(request):
-    #need to check if user is logged in w/possibly: if request.user.is_authenticated:
-    return render(request, 'landing.html')
+    if request.user.is_authenticated:
+        return render(request, 'landing.html')
+    else:
+        return redirect('login')
 
 def index(request):
     return HttpResponse("Users Homepage")
