@@ -12,6 +12,8 @@ class Userinfo(models.Model):
     dob = models.CharField(max_length=20)       #
     phone = models.CharField(null = True, max_length=20)   #
     email = models.EmailField(max_length=20)
+    author = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE, default=None)
+
 
     def __str__(self): #string representation in db
         return self.fname + ' ' + self.lname
