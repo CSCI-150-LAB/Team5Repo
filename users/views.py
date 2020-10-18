@@ -48,11 +48,11 @@ def login_(request):
             user = form.get_user()
             login(request, user)
         else:
-            return render(request, 'login.html', context={'form': form})
+            return render(request, 'home', context={'form': form})
         return redirect('/users/landing')
     else:
         form = AuthenticationForm()
-        return render(request, 'login.html', context={'form': form})
+        return render(request, 'home', context={'form': form})
 
 
 def logout_(request):
