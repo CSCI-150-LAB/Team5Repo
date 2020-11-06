@@ -1,0 +1,26 @@
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+         {% if object.author == user %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'user-update' object.id %}">Update</a>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'user-delete' object.id %}">Delete</a>
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'landing' %}">Dashboard</a>
+          </div>
+        {% endif %}
+      </div>
+      <h5> {{ object.fname }}</h5>
+      <h5>{{ object.lname }}</h5>
+        <h5> {{ object.city }}</h5>
+        <h5> {{ object.state }}</h5>
+        <h5> {{ object.address }}</h5>
+        <h5> {{ object.zipcode }}</h5>
+        <h5> {{ object.dob }}</h5>
+        <h5> {{ object.phone }}</h5>
+        <h5> {{ object.email }}</h5>
+        <h5> {{ object.author }}</h5>
+    </div>
+  </article>
+{% endblock content %}

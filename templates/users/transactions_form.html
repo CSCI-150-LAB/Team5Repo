@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+      <head>
+         <style>
+            .output {
+               Font: 1rem 'Fira Sans', sans-siref;
+            }
+			fieldset {
+			  width: 33%;
+			}
+            fieldset input {
+              margin: 1rem 0;
+              width: 61%;
+            }
+			input.alone {
+			  margin: 1rem 0;
+			  width: 21%;
+			}
+            label {
+              display: in-block;
+              width: 20%
+            }
+            input:invalid:not(:placeholder-shown) + span:after {
+              content: '✖';
+              color: #ff0000;
+              padding-left: 5px;
+            }
+            input:valid + span:after {
+              content: '✓';
+              color: #228b22;
+              padding-left: 5px;
+            }
+         </style>
+
+         <title>Bulldog Banking</title>
+      </head>
+  <body>
+    <h1>Transactions</h1>
+
+    <form method = "post">
+	{% csrf_token %}
+      <fieldset>
+        <label for="tname">Short Description:</label><br>
+        <input type="text" id="tname" name="tname" placeholder="ex: " pattern="[A-z]{1,}" required>
+	    <span class = "validity"></span>
+        <br>
+        <label for="amount">Transaction amount:</label><br>
+        <input type="text" id="amount" name="amount" placeholder= "Amount" >
+           <br>
+          <label for="recipient">Recipient:</label><br>
+           <input type="text" id="recipient" name="recipient" placeholder="Rando" >
+
+        <br>
+          <label for="date">Date:</label><br>
+	    <input type="text" id="date" name="date" placeholder="Date" >
+
+      </fieldset>
+
+      <fieldset>
+
+	  <input type="submit" value="Submit"/>
+   </fieldset>
+   </form>
+
+   </body>
+</html>

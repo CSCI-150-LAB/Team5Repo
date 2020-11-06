@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Dashboard</title>
+     <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+</head>
+<body>
+    <header>
+        
+		<div class="header">
+            <div class="dropdown">
+                <button class="dropbutton">Settings</button>
+                    <div class="dropcontent">
+                        <a href="{% url 'bills-create' %}">Bills</a>
+                        <a href="{% url 'user-create' %}">Register</a>
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </div>
+            </div>
+            <!--
+            <input type="button" class="button" onclick="location.href='homepage.html';" value="log out">
+            <div id="settings">
+                <input type="button" class="button" onclick="location.href='#';" value="settings">
+            </div>-->
+            
+            <h1 id="title">Bulldog Banking</h1>
+            <div class="Inline">
+                <img src="{% static "images/Logo.png" %}" alt="Image Not found" class="account">
+                <h2>Welcome {{ user.username }} {{ user.id }} </h2>
+            </div>
+            
+        </div>
+        <div>
+            <nav id="navigation">
+                <div class="menu">
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="{% url 'taction-create' %}" >Transactions</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    <div class="clr"></div>
+    <div class="clearfix"></div>
+   
+
+</body>
+</html>
+
+
