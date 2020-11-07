@@ -10,6 +10,7 @@ urlpatterns = [
     path('users/login/', include('users.urls')),
     path('users/signup/', include('users.urls')),
     path('users/landing/', include('users.urls')),
+    path('users/billslist/', include('users.urls')),
     path('users/logout/', include('users.urls')),
     path('myapi/', include('myapi.urls'))
 ]

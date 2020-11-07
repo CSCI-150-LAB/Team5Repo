@@ -11,6 +11,9 @@ class PostListView (ListView):
 
     model = Userinfo
 
+    def get_queryset(self): #gets only if user matches
+        return self.model.objects.filter(author=self.request.user)
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Userinfo
@@ -30,6 +33,7 @@ class PostDetailView(DetailView):
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     model = Userinfo
+    success_url = '/users/userlist'
     fields = ['fname', 'lname', 'address', 'city', 'state', 'zipcode',
               'dob', 'phone', 'email']
 
@@ -46,7 +50,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Userinfo
-    success_url = '/'
+    success_url = '/users/userlist'
 
     def test_func(self):
         post = self.get_object()
@@ -55,8 +59,19 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+
+class BillsListView (ListView):
+
+    model = bills
+
+    def get_queryset(self): #gets only if user matches
+        return self.model.objects.filter(user_id=self.request.user)
+
+
+
 class BillsCreateView(LoginRequiredMixin, CreateView):
     model = bills
+    success_url = '/users/billslist'
     fields = ['bname', 'bamount', 'duedate']
 
     def form_valid(self, form):
@@ -70,6 +85,7 @@ class BillsDetailView(DetailView):
 
 class BillsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = bills
+    success_url = '/users/billslist'
     fields = ['bname', 'bamount', 'duedate']
 
     def form_valid(self, form):
@@ -78,14 +94,14 @@ class BillsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.author:
+        if self.request.user == post.user_id:
             return True
         return False
 
 
 class BillsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = bills
-    success_url = '/'
+    success_url = '/users/billslist'
 
     def test_func(self):
         post = self.get_object()
@@ -94,8 +110,17 @@ class BillsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+class TranListView (ListView):
+
+    model = transactions
+
+    def get_queryset(self): #gets only if user matches
+        return self.model.objects.filter(user_id=self.request.user)
+
+
 class TranCreateView(LoginRequiredMixin, CreateView):
     model = transactions
+    success_url = '/users/tactionslist'
     fields = ['tname', 'recipient', 'amount', 'date']
 
     def form_valid(self, form):
@@ -109,6 +134,7 @@ class TranDetailView(DetailView):
 
 class TranUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = transactions
+    success_url = '/users/tactionslist'
     fields = ['tname', 'recipient', 'amount', 'date']
 
     def form_valid(self, form):
@@ -117,14 +143,14 @@ class TranUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         post = self.get_object()
-        if self.request.user == post.author:
+        if self.request.user == post.user_id:
             return True
         return False
 
 
 class TranDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = transactions
-    success_url = '/'
+    success_url = '/users/tactionslist'
 
     def test_func(self):
         post = self.get_object()

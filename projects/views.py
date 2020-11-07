@@ -7,7 +7,11 @@ from django.contrib.auth import login, logout
 #    return render(request, 'homePage.html')
 
 
+
+
+
 def home(request):
+
 
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)

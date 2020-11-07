@@ -20,8 +20,8 @@ class Userinfo(models.Model):
     def __str__(self): #string representation in db
         return self.fname + ' ' + self.lname
 
-    def get_absolute_url(self):
-        return reverse('user-detail', kwargs={'pk': self.pk})
+   # def get_absolute_url(self):
+    #    return reverse('user-list', kwargs={'pk': self.pk})
 
 
 class transactions(models.Model):
@@ -36,8 +36,8 @@ class transactions(models.Model):
     def __str__(self): #string representation in db
         return self.tname + ' ' + self.amount
 
-    def get_absolute_url(self):
-        return reverse('taction-detail', kwargs={'pk': self.pk})
+    #def get_absolute_url(self):
+     #   return reverse('taction-list', kwargs={'pk': self.pk})
 
 
 
@@ -51,8 +51,8 @@ class bills(models.Model):
     def __str__(self): #string representation in db
         return self.bname + ' ' + self.bamount
 
-    def get_absolute_url(self):
-        return reverse('bills-detail', kwargs={'pk': self.pk})
+   # def get_absolute_url(self):
+    #    return reverse('bills-list', kwargs={'pk': self.pk})
 
 
 
