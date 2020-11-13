@@ -224,3 +224,6 @@ def landingpage(request):
 def index(request):
     return HttpResponse("Users Homepage")
 
+
+def billspay(request):
+    return render(request, 'billpay.html')
