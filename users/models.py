@@ -27,7 +27,8 @@ class Userinfo(models.Model):
 class transactions(models.Model):
     user_id = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE, default=None)
     # account_id
-    amount = models.CharField(max_length=20)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    #amount = models.CharField(max_length=20)
     tname = models.CharField(max_length=20) #decimal field
     recipient = models.CharField(max_length=20)
     date = models.DateField(max_length=20)
@@ -45,7 +46,7 @@ class bills(models.Model):
     bname = models.CharField(max_length=20)
     user_id = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE, default=None)
     #bamount = models.DecimalField(max_digits=6, decimal_places=2, default=None)
-    bamount = models.PositiveIntegerField()
+    bamount = models.DecimalField(max_digits=10, decimal_places=2)
     duedate = models.DateField(max_length=20)
 
     def __str__(self): #string representation in db

@@ -8,10 +8,13 @@
         <li>{{ object.amount }}</li>
         <li>{{ object.date }}</li>
             <li>{{ object.recipient }}</li>
+             
              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-update' object.id %}">Update</a>
              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-delete' object.id %}">Delete</a>
         <hr/>
         {% empty %}
         <li>No objects yet.</li>
         {% endfor %}
+        <p> Current Balance: {{ cBalance }}</p>
+
 </ul>

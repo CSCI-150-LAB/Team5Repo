@@ -5,7 +5,8 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.db.models import Sum
+from django.template import loader
 
 class PostListView (ListView):
 
@@ -110,12 +111,31 @@ class BillsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+
+
+
+
 class TranListView (ListView):
 
     model = transactions
 
     def get_queryset(self): #gets only if user matches
-        return self.model.objects.filter(user_id=self.request.user)
+       return self.model.objects.filter(user_id=self.request.user)
+
+
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(TranListView, self).get_context_data(*args, **kwargs)
+        context['cBalance'] = transactions.objects.filter(user_id=self.request.user).aggregate(Sum('amount'))['amount__sum'] or 0.00
+        return context    
+    
+    #context_object_name = 'transactions'
+    
+    #def get_context_data(self):
+     #   cBalance = transactions.objects.all().aggregate(cBalance=Sum('amount'))
+      #  return cBalance
+    #cBalance = transactions.objects.all().aggregate(Sum('amount'))['amount__sum'] or 0.00
+
 
 
 class TranCreateView(LoginRequiredMixin, CreateView):
