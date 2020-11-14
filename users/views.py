@@ -6,7 +6,8 @@ from django.contrib.auth import login, logout
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Sum
-from django.template import loader
+
+
 
 class PostListView (ListView):
 
@@ -112,9 +113,6 @@ class BillsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 
-
-
-
 class TranListView (ListView):
 
     model = transactions
@@ -129,13 +127,6 @@ class TranListView (ListView):
         context['cBalance'] = transactions.objects.filter(user_id=self.request.user).aggregate(Sum('amount'))['amount__sum'] or 0.00
         return context    
     
-    #context_object_name = 'transactions'
-    
-    #def get_context_data(self):
-     #   cBalance = transactions.objects.all().aggregate(cBalance=Sum('amount'))
-      #  return cBalance
-    #cBalance = transactions.objects.all().aggregate(Sum('amount'))['amount__sum'] or 0.00
-
 
 
 class TranCreateView(LoginRequiredMixin, CreateView):

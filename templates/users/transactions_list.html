@@ -4,10 +4,10 @@
     <h5> Transactions: </h5>
         {% for object in object_list %}
 
-         <li>{{ object.tname }}</li>
-        <li>{{ object.amount }}</li>
-        <li>{{ object.date }}</li>
-            <li>{{ object.recipient }}</li>
+         <p> Description: {{ object.tname }}</p>
+        <p>Amount: {{ object.amount }}</p>
+        <p>Date: {{ object.date }}</p>
+            <p>Recipient: {{ object.recipient }}</p>
              
              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-update' object.id %}">Update</a>
              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-delete' object.id %}">Delete</a>
@@ -15,6 +15,6 @@
         {% empty %}
         <li>No objects yet.</li>
         {% endfor %}
-        <p> Current Balance: {{ cBalance }}</p>
+        <p> Current Balance: ${{ cBalance }}) </p>
 
 </ul>
