@@ -11,8 +11,8 @@
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
-                        <a href="{% url 'bills-create' %}">Bills</a>
-                        <a href=#>Register</a>
+                        <a href=#>Account</a>
+                        <a href=#>Help</a>
                         <a href="{% url 'logout' %}">Log Out</a>
                     </div>
             </div>
@@ -25,7 +25,7 @@
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
                 <img src="{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2>Welcome {{ user.username }} {{ user.id }} </h2>
+                <h2>Welcome {{ user.username }} </h2>
             </div>
             
         </div>
@@ -35,7 +35,7 @@
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="{% url 'taction-create' %}" >Transactions</a></li>
+                        <li><a href=#>Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -45,10 +45,18 @@
 
     <div class="clr"></div>
     <div class="clearfix"></div>
-   <a href= "{% url 'user-list' %}" > Users-List</a><br><br>
-   <a href= "{% url 'bill-list' %}" > Bills</a><br><br>
-   <a href= "{% url 'taction-list' %}" > Transactions</a><br><br>
+   <br>
+   <input type="button" id="submit" onclick="location.href='/users/billslist';" value="Bills"><br>
+   <input type="button" id="submit" onclick="location.href='/users/tactionslist';" value="Transactions"><br>
+   <input type="button" id="submit" onclick="location.href='/users/userlist';" value="User Info"><br>
+   <p>Current Balance: ${{ cBalance|floatformat:2 }} </p><br>
+  <!-- {% for bills in bills_list %}
+   <p> Bill Name: {{ bills.bname }}</p>
+   <p> Amount: ${{ bills.bamount }}</p>
+   <p> Due Date: {{ bills.duedate }}</p><br>
 
+   {% endfor %}
+-->
 
 </body>
 </html>

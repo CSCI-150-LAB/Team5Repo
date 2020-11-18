@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
+from users.models import bills
 
 
 #def home (request):
@@ -26,3 +27,8 @@ def home(request):
     else:
         form = AuthenticationForm()
         return render(request, 'homePage.html', context={'form': form})
+
+
+    
+ 
+ 
