@@ -15,6 +15,6 @@
         {% empty %}
         <li>No objects yet.</li>
         {% endfor %}
-        <p> Current Balance: ${{ cBalance }}) </p>
+        <p> Current Balance: ${{ cBalance|floatformat:2 }} </p>
 
 </ul>

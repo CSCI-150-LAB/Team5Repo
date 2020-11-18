@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Userinfo, bills, transactions
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Sum
 
@@ -238,3 +238,18 @@ def index(request):
 
 def billspay(request):
     return render(request, 'billpay.html')
+
+
+class MultipleModelView(TemplateView):
+    template_name = 'landing.html'
+    
+   # def get_queryset(self): #gets only if user matches
+    #    return self.model.objects.filter(user_id=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(MultipleModelView, self).get_context_data(**kwargs) 
+        context['cBalance'] = transactions.objects.filter(user_id=self.request.user).aggregate(Sum('amount'))['amount__sum'] or 0.00
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()
+        return context
+
+
