@@ -7,11 +7,11 @@
 <body>
     <header>
         
-		<div class="header">
+    <div class="header">
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
-                        <a href=#>Account</a>
+                        <a href="{% url 'user-list' %}">Account</a>
                         <a href=#>Help</a>
                         <a href="{% url 'logout' %}">Log Out</a>
                     </div>
@@ -33,9 +33,9 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href=#>Contact</a></li>
+                        <li><a href="{% url 'home' %}">Main</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -49,16 +49,31 @@
    <input type="button" id="submit" onclick="location.href='/users/billslist';" value="Bills"><br>
    <input type="button" id="submit" onclick="location.href='/users/tactionslist';" value="Transactions"><br>
    <input type="button" id="submit" onclick="location.href='/users/userlist';" value="User Info"><br>
-   <p>Current Balance: ${{ cBalance|floatformat:2 }} </p><br>
+   <div class="BalanceBox">
+        <h1>Current Balance: ${{ cBalance|floatformat:2 }} </h1>
+   </div>
+
+  <!-- <div class="transactionsBox">
+     <table style="width:100%">
+        <tr>
+          <th>Upcoming Bills</th>
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>Bill 1</td>
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>Bill 2</td>
+        </tr>
+      </table>
+   </div> -->
   <!-- {% for bills in bills_list %}
    <p> Bill Name: {{ bills.bname }}</p>
    <p> Amount: ${{ bills.bamount }}</p>
    <p> Due Date: {{ bills.duedate }}</p><br>
-
    {% endfor %}
--->
 
+<div style="margin-top: 150px;"></div>-->
 </body>
 </html>
-
-

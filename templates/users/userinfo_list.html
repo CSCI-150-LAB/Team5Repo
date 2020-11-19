@@ -1,23 +1,28 @@
-
+{% extends "base.html" %}
+{% block content %}
 <ul>
 
-    <a href="{% url 'landing' %}"> Homepage</a><br><br>
+
+
+
+
+<div class="transactionsBox">
+        <h1>User Details</h1>
 
 <!-- {if object.author == user %} -->
     <!-- Iterate over object_list -->
-     <h5> User Details: </h5>
         {% for object in object_list %}
     <!-- Display Objects -->
-        <li> {{ object.fname }}</li>
-      <li>{{ object.lname }}</li>
-        <li> {{ object.city }}</li>
-        <li> {{ object.state }}</li>
-        <li> {{ object.address }}</li>
-        <li> {{ object.zipcode }}</li>
-        <li> {{ object.dob }}</li>
-        <li> {{ object.phone }}</li>
-        <li> {{ object.email }}</li>
-        <li> {{ object.author }}</li>
+        <li>First Name: {{ object.fname }}</li>
+      <li>Last Name: {{ object.lname }}</li>
+        <li> City: {{ object.city }}</li>
+        <li> State: {{ object.state }}</li>
+        <li> Address: {{ object.address }}</li>
+        <li> ZipCode: {{ object.zipcode }}</li>
+        <li> Date of Birth: {{ object.dob }}</li>
+        <li> Phone: {{ object.phone }}</li>
+        <li> Email: {{ object.email }}</li>
+        <li> Username: {{ object.author }}</li>
 
         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'user-delete' object.id %}">Delete</a>
         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'user-update' object.id %}">Update</a>
@@ -33,3 +38,6 @@
 <!-- >    <p> No posts yet</p> -->
 <!-- % endif %} -->
 </ul>
+
+
+{% endblock %}

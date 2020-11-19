@@ -1,11 +1,10 @@
 
 
-
 {% load static %}
 
 <!DOCTYPE html>
 <head>
-    <title>Signup</title>
+    <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
 </head>
 <body>
@@ -25,7 +24,7 @@
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
                 <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">Signup</h2>
+                <h2 class="Welcome">About</h2>
             </div>
             
         </div>
@@ -48,23 +47,14 @@
     <div class="clearfix"></div>
    
     <div class="contactbox">
-        <h1>Signup</h1>
- <form class="site-form" method = "post">
-     {% csrf_token %}
- {{ form }}
-     <input type="submit" value="Signup">
- </form>
+        <h1>Contact</h1>
+        <br><br>
+        <p> Bulldog Banking is a website that allows you to conveniently keep track of your money from monthly expenses, to manage your money according to your own personal goals. This wiki page will show our list of features and development of the site. </p>
+        <br><br>
+  
     </div>
 
     
 
 </body>
 </html>
-
-
-
-
-
-
-
-

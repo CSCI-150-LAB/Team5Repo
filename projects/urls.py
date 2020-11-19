@@ -13,4 +13,6 @@ urlpatterns = [
     path('users/billslist/', include('users.urls')),
     path('users/logout/', include('users.urls')),
     path('myapi/', include('myapi.urls')),
+    path('contact/', views.contact, name='contact'),
+    path('about/', views.about, name='about')
 ]

@@ -1,17 +1,14 @@
-
-
-
 {% load static %}
 
 <!DOCTYPE html>
 <head>
-    <title>Signup</title>
+    <title>Bulldog Banking</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
 </head>
 <body>
     <header>
         
-		<div class="header">
+        <div class="header">
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
@@ -25,7 +22,7 @@
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
                 <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">Signup</h2>
+                <h2 class="Welcome"> Welcome {{user.username}}</h2>
             </div>
             
         </div>
@@ -33,7 +30,7 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'home' %}">Home</a></li> 
+                        <li><a href="{% url 'landing' %}">Dashboard</a></li>
                         <li><a href="#">Calender</a></li>
                         <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
@@ -43,28 +40,7 @@
 
     </header>
 
-    
+    {% block content %}  {% endblock content %}
     <div class="clr"></div>
     <div class="clearfix"></div>
-   
-    <div class="contactbox">
-        <h1>Signup</h1>
- <form class="site-form" method = "post">
-     {% csrf_token %}
- {{ form }}
-     <input type="submit" value="Signup">
- </form>
-    </div>
-
-    
-
-</body>
-</html>
-
-
-
-
-
-
-
-
+   </body>

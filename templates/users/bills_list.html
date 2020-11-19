@@ -31,9 +31,9 @@
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
-                        <a href="">Account</a>
-                        <a href="#">Help</a>
-                        <a href="#">Log Out</a>
+                        <a href="{% url 'user-list' %}">Account</a>
+                        <a href="{% url 'contact' %}">Help</a>
+                        <a href="{% url 'logout' %}">Log Out</a>
                     </div>
             </div>
             
@@ -49,7 +49,7 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Bills</a></li>
+                        <li><a href="{% url 'landing' %}">Dashboard</a></li>
                         <li><a href="#">Calender</a></li>
                         <li><a href="#">Set Reminders</a></li>
                     </ul>
@@ -66,7 +66,6 @@
     <div>
         
 
-        <h1 id="Box Title">Upcoming Payments</h1>
 
     </div>
 
@@ -77,6 +76,7 @@
                 <th>Pay To</th>
                 <th>Total Amount</th>
                 <th>Due Date</th>
+                 <th>Modify</th>
                 <th>Autopay</th>
             </tr>
             <tr>
@@ -85,6 +85,9 @@
                 <td>{{object.bname}}</td>
                 <td>${{object.bamount}}</td>
                 <td> {{ object.duedate }} </td>
+                <td> <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
+       
                 <td>
                     <div class="center">
                         <input type="checkbox">
@@ -139,6 +142,7 @@
             <input class="button" type="submit" value="Submit" name="">
         </div>
         <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a>
             <h1>Total Grand Amount: $ {{ bTotal|floatformat:2 }} </h1>
         </div>
     </div>

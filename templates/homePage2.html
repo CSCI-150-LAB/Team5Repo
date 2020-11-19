@@ -172,17 +172,22 @@
 	<nav id="navigation">
 		<div class="menu">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="{% url 'landing' %}">Dashboard</a></li>
+				<li><a href="{% url 'about' %}">About</a></li>
+				<li><a href="{% url 'contact' %}">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
 	<div id="main-content"></div>
-		
+		 
+
+<div class="BalanceBox">
+        <h1> Welcome {{ user.username }} </h1>
 	</div>
+</div>
 
 	<img src= "{% static "images/Bulldogslogo.png" %}" id="bulldog" alt=""><br><br><br><br>
+
 
 	<table>
 	  <tr>

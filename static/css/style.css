@@ -124,6 +124,7 @@ img.account{
     margin-bottom: auto;
 }
 
+
 .box2{
     background-color: white;
     height: 1000px;
@@ -202,4 +203,44 @@ input:checked[type="checkbox"]:before{
 
 #Box Title{
     
+}
+
+.contactbox{
+    background-color: white;
+    height: 500px;
+    width: 500px;
+    border: 15px solid red;
+    padding: 50px;
+    margin-top: 100px;
+    margin-left: 350px;
+    margin-right: 250px;
+}
+
+.BalanceBox{
+    background-color: white;
+    height: 150px;
+    width: 275px;
+    border: 15px solid red;
+    padding: 50px;
+    padding-bottom: 10px;
+    margin: 100px;
+    margin-left: 450px;
+}
+
+.BalanceBox h1{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: green;
+}
+
+.transactionsBox{
+    background-color: white;
+    height: 350px;
+    width: 375px;
+    border: 15px solid red;
+    padding: 50px;
+    padding-bottom: 10px;
+    margin: 100px;
+    margin-left: 750px;
 }

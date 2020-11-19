@@ -34,6 +34,11 @@ def home(request):
             return render(request, 'homePage.html', context={'form': form})
 
 
-    
+
+def contact(request):
+    return render(request, 'contact.html')
  
+ 
+def about(request):
+    return render(request, 'about.html')
  

@@ -172,9 +172,9 @@
 	<nav id="navigation">
 		<div class="menu">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="{% url 'landing' %}">Dashboard</a></li>
+				<li><a href="{% url 'about' %}">About</a></li>
+				<li><a href="{% url 'contact' %}">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -187,7 +187,7 @@
      {% csrf_token %}
      {{ form }}
          <br><br><input type="submit" id="submit" value="Sign In"><br><br>
-        <a href="help.html" >Forgot Username/Password?</a><br><br>
+        <a href="{% url 'contact' %}" >Forgot Username/Password?</a><br><br>
     	<input type="button" id="submit" onclick="location.href='/users/signup';" value="Sign Up">
     	</form>
 	  </fieldset>

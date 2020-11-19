@@ -6,7 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.db.models import Sum
+from django.db.models import Sum, F
+from django.db.models.functions import Abs
 
 
 
@@ -22,6 +23,8 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Userinfo
     fields = ['fname', 'lname', 'address', 'city', 'state', 'zipcode',
               'dob', 'phone', 'email']
+
+    
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -140,6 +143,9 @@ class TranCreateView(LoginRequiredMixin, CreateView):
     model = transactions
     success_url = '/users/tactionslist'
     fields = ['tname', 'recipient', 'amount', 'date']
+    
+    #transactions.amount = transactions.amount * - 1
+    #transactions.objects.update(amount=Abs(F('amount')))
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user

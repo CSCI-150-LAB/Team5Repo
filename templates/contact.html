@@ -1,11 +1,8 @@
-
-
-
 {% load static %}
 
 <!DOCTYPE html>
 <head>
-    <title>Signup</title>
+    <title>Contact</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
 </head>
 <body>
@@ -25,7 +22,7 @@
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
                 <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">Signup</h2>
+                <h2 class="Welcome">Contact</h2>
             </div>
             
         </div>
@@ -48,23 +45,21 @@
     <div class="clearfix"></div>
    
     <div class="contactbox">
-        <h1>Signup</h1>
- <form class="site-form" method = "post">
-     {% csrf_token %}
- {{ form }}
-     <input type="submit" value="Signup">
- </form>
+        <h1>Contact</h1>
+        <br><br>
+        <p>If you have any questions, concerns, comments, or issues please contact us at the following: </p>
+        <br><br>
+        <div><u>Dylan Messenger</u></div>
+        <div>Email: dylanmessenger@mail.fresnostate.edu</div>
+        <br><br>
+        <div><u>Angel Silva</u></div>
+        <div>Email: asilva18@mail.fresnostate.edu</div>
+        <br><br>
+        <div><u>Pete Solis</u></div>
+        <div>Email: psoliss@mail.fresnostate.edu</div>
     </div>
 
     
 
 </body>
 </html>
-
-
-
-
-
-
-
-
