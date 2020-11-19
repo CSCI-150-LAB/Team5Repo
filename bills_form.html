@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+      <head>
+         <style>
+            .output {
+               Font: 1rem 'Fira Sans', sans-siref;
+            }
+			fieldset {
+			  width: 33%;
+			}
+            fieldset input {
+              margin: 1rem 0;
+              width: 61%;
+            }
+			input.alone {
+			  margin: 1rem 0;
+			  width: 21%;
+			}
+            label {
+              display: in-block;
+              width: 20%
+            }
+            input:invalid:not(:placeholder-shown) + span:after {
+              content: '✖';
+              color: #ff0000;
+              padding-left: 5px;
+            }
+            input:valid + span:after {
+              content: '✓';
+              color: #228b22;
+              padding-left: 5px;
+            }
+         </style>
+
+         <title>Bulldog Banking</title>
+      </head>
+  <body>
+    <h1>Bills</h1>
+
+    <form method = "post">
+	{% csrf_token %}
+      <fieldset>
+        <label for="bname">Bill name:</label><br>
+        <input type="text" id="bname" name="bname" placeholder="ex: Spotify" pattern="[A-z]{1,}" required>
+	    <span class = "validity"></span>
+        <br>
+        <label for="bamount">Bill amount:</label><br>
+        <input type="text" id="bamount" name="bamount" placeholder= "Amount" >
+
+        <br>
+      </fieldset>
+
+      <fieldset>
+	    <label for="duedate">Due Date:</label><br>
+	    <input type="text" id="duedate" name="duedate" placeholder="Due date" >
+
+      <label for="brecipient">Recipient:</label><br>
+      <input type="text" id="brecipient" name="brecipient" placeholder="Recipient" >
+
+        <br>
+
+	  <input type="submit" value="Submit"/>
+   </fieldset>
+   </form>
+
+   </body>
+</html>
