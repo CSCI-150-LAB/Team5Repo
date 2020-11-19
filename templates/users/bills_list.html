@@ -1,20 +1,147 @@
 
-<ul>
+<!-- <ul>
 <a href="{% url 'landing' %}"> Homepage</a><br><br>
     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Create New</a>
 <br>
         <h5> Bills: </h5>
         {% for object in object_list %}
-
         <li>{{ object.bname }}</li>
         <li>{{ object.bamount }}</li>
             <li>{{ object.duedate }}</li>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
-
         <hr/>
         {% empty %}
         <li>No objects yet.</li>
-
         {% endfor %}
 </ul>
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <title>Bill Pay</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
+</head>
+<body>
+    <header>
+        
+        <div class="header">
+            <div class="dropdown">
+                <button class="dropbutton">Settings</button>
+                    <div class="dropcontent">
+                        <a href="">Account</a>
+                        <a href="#">Help</a>
+                        <a href="#">Log Out</a>
+                    </div>
+            </div>
+            
+            
+            <h1 id="title">Bulldog Banking</h1>
+            <div class="Inline">
+                <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
+                <h2 class="Welcome">My Bills</h2>
+            </div>
+            
+        </div>
+        <div>
+            <nav id="navigation">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Bills</a></li>
+                        <li><a href="#">Calender</a></li>
+                        <li><a href="#">Set Reminders</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    
+    <div class="clr"></div>
+    <div class="clearfix"></div>
+   
+    <div>
+        
+
+        <h1 id="Box Title">Upcoming Payments</h1>
+
+    </div>
+
+    <div class="box2">
+        <h1>Upcoming Payments</h1>
+        <table style="width:100%">
+            <tr>
+                <th>Pay To</th>
+                <th>Total Amount</th>
+                <th>Due Date</th>
+                <th>Autopay</th>
+            </tr>
+            <tr>
+            {% for object in object_list %}
+
+                <td>{{object.bname}}</td>
+                <td>${{object.bamount}}</td>
+                <td> {{ object.duedate }} </td>
+                <td>
+                    <div class="center">
+                        <input type="checkbox">
+                            
+                        </input>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                 {% empty %}
+        <li>No objects yet.</li>
+
+        {% endfor %}
+              <!--  <td>State Farm</td>
+                <td>$150</td>
+                <td>$<input type="payment amount"></td>
+                <td>
+                    <form>
+                        <select>
+                            <option value="Checking">Checking</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Debit">Mastercard</option>
+                            <option value="Debit">Visa</option>
+                            <option value="Credit">Discover</option>
+                            <option value="Credit">American Express</option>
+                        </select>                        
+                      </form>
+                </td>
+                <td>
+                    <div class="center">
+                        <input type="checkbox">
+                    </div>
+                </td>
+            </tr>
+                <td>Spotify</td>
+                <td>$10</td>
+                <td>$<input type="payment amount"></td>
+                <td>
+                    <form>
+                        <select>
+                            <option value="Checking">Checking</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Debit">Mastercard</option>
+                            <option value="Debit">Visa</option>
+                            <option value="Credit">Discover</option>
+                            <option value="Credit">American Express</option>
+                        </select>
+                      </form>
+                </td> -->
+        </table>
+        <div>
+            <input class="button" type="submit" value="Submit" name="">
+        </div>
+        <div>
+            <h1>Total Grand Amount: $ {{ bTotal|floatformat:2 }} </h1>
+        </div>
+    </div>
+
+</body>
+</html>

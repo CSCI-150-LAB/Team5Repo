@@ -48,6 +48,7 @@ class bills(models.Model):
     #bamount = models.DecimalField(max_digits=6, decimal_places=2, default=None)
     bamount = models.DecimalField(max_digits=10, decimal_places=2)
     duedate = models.DateField(max_length=20)
+    brecipient = models.CharField(max_length=20, null=True)
 
     def __str__(self): #string representation in db
         return self.bname + ' ' + self.bamount

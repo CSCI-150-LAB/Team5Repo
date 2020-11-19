@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Userinfo, bills, transactions
@@ -68,6 +69,12 @@ class BillsListView (ListView):
 
     def get_queryset(self): #gets only if user matches
         return self.model.objects.filter(user_id=self.request.user)
+
+
+    def get_context_data(self, *args, **kwargs):
+      context = super(BillsListView, self).get_context_data(*args, **kwargs)
+      context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
+      return context    
 
 
 
@@ -252,4 +259,4 @@ class MultipleModelView(TemplateView):
         context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()
         return context
 
-
+  

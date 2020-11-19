@@ -152,9 +152,7 @@
 
 	</style>
   </head>
-
   <body>
-    
 	<!--
 		<div id="banner">
 	  <div id="banner-content">
@@ -183,14 +181,15 @@
 	<div id="main-content"></div>
 		
 	</div>
-<fieldset>
+
+	<fieldset>
 	   <form class="site-form" method = "POST">
      {% csrf_token %}
      {{ form }}
          <br><br><input type="submit" id="submit" value="Sign In"><br><br>
         <a href="help.html" >Forgot Username/Password?</a><br><br>
-    <input type="button" id="submit" onclick="location.href='/users/signup';" value="Sign Up">
-    </form>
+    	<input type="button" id="submit" onclick="location.href='/users/signup';" value="Sign Up">
+    	</form>
 	  </fieldset>
 	<img src= "{% static "images/Bulldogslogo.png" %}" id="bulldog" alt=""><br><br><br><br>
 

@@ -1,0 +1,238 @@
+{% load static %}
+
+<html>
+  <head>
+      <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+	<title>Home Page</title>
+	<style>
+	  *{
+	    margin: 0;
+		padding: 0;
+	  }
+	  div#banner {
+	    position: absolute; 
+        top: 0; 
+        left: 0; 
+        background-color: rgb(201, 45, 57); 
+        width: 100%; 
+		height: 75px;
+		padding-bottom: 50px;
+	  }
+	  
+	  div#banner-content {
+	    width: 800px;
+		height: 60px;
+		margin: 0 auto;
+		padding: 10px;
+		text-align: center;
+		font-size: 40;
+		color: white;
+		
+	  }
+	  body {
+	    background-color: rgb(0,0,238);
+	  }
+	  div#main-content {
+		padding-top: 70px;
+		padding-bottom: 100px;
+	  }
+	  form {
+	    text-align: center;
+		display: inline-block;
+		vertical-align: top;
+	  }
+	  fieldset{
+	    background-color: rgb(201, 45, 57);
+		border-color: rgba(201,45,57,0);
+		width: 190px;
+		height: 245px;
+		margin: 0 auto auto 10;
+		padding-top: 10px
+	  }
+	  input{
+	    text-align: center;
+	    height: 30px;
+	  }
+
+	  input#submit {
+		width: 100px;
+		background-color: gold;
+	  }
+
+	  input#submit:hover{
+		  background-color: red;
+	  }
+
+	  ::placeholder {
+	    color: black;
+		opacity: 1;
+	  }
+	  img#bulldog {
+	    width: 600px ;
+		height: 380px ;
+		float: center;
+		padding-left: 500px;
+		padding-top: 0px;
+		display: inline-block;
+	  }
+	 
+
+	  table, tr, td {
+	    margin-left: auto;
+		margin-right: auto;
+	    width: 600px;
+		height: 75px;
+		float: center;
+	    border: 1px solid white;
+		background-color: red;
+	    border-collapse: collapse;
+		font-size: 20px;
+		text-align: center;
+	  }
+	  h1 {
+	    color:white;
+		text-align: center;
+	  }
+	  #head{
+	    background-color: orange;
+	  }
+	  #data {
+	    color: white;
+	  }
+	  #data2 {
+	    background-color: rgb(255,143,128);
+		color: white;
+	  }  
+
+	  a {
+		color: blue;
+		text-decoration: none;
+	  }
+
+	  .header{
+		  background-color: red;
+		  padding: 40px;
+		  font-size: 25px;
+	  }
+
+	#navigation{
+		background-color: white;
+		color: white;
+	}
+
+	#navigation ul{
+		padding: 10;
+		list-style: none;
+	}
+
+	#navigation li{
+		display: inline;
+	}
+
+	#navigation a:link{
+		color: rgb(158, 5, 5);
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 30px;
+		padding-right: 25px;
+		padding-left: 19%;
+	}
+
+	#navigation a:visited{
+		color: rgb(95, 0, 95);
+	}
+
+	#navigation a:hover{
+		color: rgb(0,0,238);
+	}
+
+	#navigation a:active{
+		color: green;
+	}
+
+	</style>
+  </head>
+  <body>
+	<!--
+		<div id="banner">
+	  <div id="banner-content">
+	  	Bulldog Banking
+		
+	  </div>
+
+	</div>
+	-->
+
+	<header>
+		<div class="header">
+			<h1>Bulldog Banking</h1>
+		</div>
+	</header>
+
+	<nav id="navigation">
+		<div class="menu">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div id="main-content"></div>
+		
+	</div>
+
+	<img src= "{% static "images/Bulldogslogo.png" %}" id="bulldog" alt=""><br><br><br><br>
+
+	<table>
+	  <tr>
+	    <td colspan="2" id="data">Bulldog's Credit Card</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Cash back percentage on all purchases</td>
+		<td id="data">5.00%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">APR percent</td>
+		<td id="data">10-15%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Annual Fee</td>
+		<td id="data">$0</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Late Fee</td>
+		<td id="data">$5</td>
+	  </tr>
+	</table><br><br>
+	<h1>Check Out Our Savings</h1><br>
+	<table>
+	  <tr>
+	    <td id="head"></td>
+		<td id="data">Bulldog Savings Account</td>
+		<td id="data">Wells Fargo Savings Account</td>
+		<td id="data">Capital One Savings Account</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Annual Percentage Yield (APY)</td>
+		<td id="data">5.00%</td>
+		<td id="data2">0.01%</td>
+		<td id="data2">0.50%</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Interest Compounded</td>
+		<td id="data">Daily</td>
+		<td id="data2">Monthly</td>
+		<td id="data2">Monthly</td>
+	  </tr>
+	  <tr>
+	    <td id="head">Monthly Fees</td>
+		<td id="data">$0</td>
+		<td id="data2">$5</td>
+		<td id="data2">$0</td>
+	  </tr>
+	</table>
+	<div style="margin-top: 150px;"></div>
+  </body>
+
+</html>
