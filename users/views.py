@@ -70,6 +70,12 @@ class BillsListView (ListView):
         return self.model.objects.filter(user_id=self.request.user)
 
 
+    def get_context_data(self, *args, **kwargs):
+      context = super(BillsListView, self).get_context_data(*args, **kwargs)
+      context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
+      return context    
+
+
 
 class BillsCreateView(LoginRequiredMixin, CreateView):
     model = bills
