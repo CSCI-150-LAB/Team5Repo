@@ -70,10 +70,11 @@
     </div>
 
     <div class="box2">
-        <h1>Upcoming Payments</h1>
+        <h1>Bills</h1>
         <table style="width:100%">
             <tr>
-                <th>Pay To</th>
+                <th>Type</th>
+                <th>Recipient</th>
                 <th>Total Amount</th>
                 <th>Due Date</th>
                  <th>Modify</th>
@@ -83,6 +84,7 @@
             {% for object in object_list %}
 
                 <td>{{object.bname}}</td>
+                <td>{{object.brecipient}}</td>
                 <td>${{object.bamount}}</td>
                 <td> {{ object.duedate }} </td>
                 <td> <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
@@ -143,6 +145,7 @@
         </div>
         <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a>
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'billpay' %}">Bill Pay</a>
             <h1>Total Grand Amount: $ {{ bTotal|floatformat:2 }} </h1>
         </div>
     </div>

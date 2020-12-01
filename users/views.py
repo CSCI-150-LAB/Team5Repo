@@ -1,13 +1,14 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 from .models import Userinfo, bills, transactions
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.db.models import Sum, F
+from django.db.models import Sum
 from django.db.models.functions import Abs
+from django.urls import reverse_lazy
 
 
 
@@ -84,7 +85,7 @@ class BillsListView (ListView):
 class BillsCreateView(LoginRequiredMixin, CreateView):
     model = bills
     success_url = '/users/billslist'
-    fields = ['bname', 'bamount', 'duedate']
+    fields = ['bname', 'bamount', 'brecipient', 'duedate']
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user
@@ -98,7 +99,7 @@ class BillsDetailView(DetailView):
 class BillsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = bills
     success_url = '/users/billslist'
-    fields = ['bname', 'bamount', 'duedate']
+    fields = ['bname', 'bamount', 'brecpient', 'duedate']
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user
@@ -150,6 +151,12 @@ class TranCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user_id = self.request.user
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(TranCreateView, self).get_context_data(**kwargs) 
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()
+        return context
+
 
 
 class TranDetailView(DetailView):
@@ -247,6 +254,35 @@ def landingpage(request):
 
 def index(request):
     return HttpResponse("Users Homepage")
+
+
+
+class billPay(LoginRequiredMixin, CreateView):
+    template_name= 'billpay.html'
+    model = transactions
+    #success_url = 'users/tactionslist/'
+    def get_success_url(self):
+        return reverse('bill-list')
+
+    fields = ['tname', 'recipient', 'amount', 'date']
+    
+    #transactions.amount = transactions.amount * - 1
+    #transactions.objects.update(amount=Abs(F('amount')))
+
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user
+        return super().form_valid(form)
+
+
+    def get_context_data(self, **kwargs):
+        context = super(billPay, self).get_context_data(**kwargs) 
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).order_by('-duedate')
+        context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
+        
+
+
+        return context
+
 
 
 def billspay(request):

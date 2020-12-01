@@ -58,14 +58,12 @@
         <tr>
           <th>Upcoming Bills</th>
         </tr>
+        {% for bills in bills_list %}
         <tr>
-          <td>Date</td>
-          <td>Bill 1</td>
+          <td>Date: {{bills.duedate}}</td>
+          <td>Bill: {{bills.brecipient}} </td>
         </tr>
-        <tr>
-          <td>Date</td>
-          <td>Bill 2</td>
-        </tr>
+     {% endfor %} 
       </table>
    </div> 
   <!-- {% for bills in bills_list %}

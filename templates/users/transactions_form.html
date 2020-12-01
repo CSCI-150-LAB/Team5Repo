@@ -43,6 +43,7 @@
 
     <form method = "post">
 	{% csrf_token %}
+
       <fieldset>
         <label for="tname">Short Description:</label><br>
         <input type="text" id="tname" name="tname" placeholder="ex: " pattern="[A-z]{1,}" required>
@@ -52,7 +53,8 @@
         <input type="text" id="amount" name="amount" placeholder= "Amount" >
            <br>
           <label for="recipient">Recipient:</label><br>
-           <input type="text" id="recipient" name="recipient" placeholder="Rando" >
+          
+           <input type="text" id="recipient" name="recipient" placeholder= "Recipient">
 
         <br>
           <label for="date">Date:</label><br>
@@ -61,7 +63,7 @@
       </fieldset>
 
       <fieldset>
-
+   
 	  <input type="submit" value="Submit"/>
    </fieldset>
    </form>

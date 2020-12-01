@@ -37,8 +37,8 @@ class transactions(models.Model):
     def __str__(self): #string representation in db
         return self.tname + ' ' + self.amount
 
-    #def get_absolute_url(self):
-     #   return reverse('taction-list', kwargs={'pk': self.pk})
+   # def get_absolute_url(self):
+    #    return reverse('bills-delete', kwargs={'pk': self.pk})
 
 
 
