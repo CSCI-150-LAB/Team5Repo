@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import PostCreateView, PostDetailView, PostUpdateView, PostDeleteView, PostListView, \
     BillsCreateView, BillsDeleteView, BillsDetailView, BillsUpdateView, TranCreateView, \
-    TranDeleteView, TranDetailView, TranUpdateView, BillsListView, TranListView, MultipleModelView, billPay, sDetailView\
+    TranDeleteView, TranDetailView, TranUpdateView, BillsListView, TranListView, MultipleModelView, billPay, sDetailView, Calendar\
 
 
 
@@ -28,7 +28,8 @@ urlpatterns = [
     path('bills/<int:pk>/update/', BillsUpdateView.as_view(), name='bills-update'),
     path('bills/<int:pk>/delete/', BillsDeleteView.as_view(), name='bills-delete'),
     path('billspay/', views.billspay, name='billspay'),
-     path('billpay/', billPay.as_view(), name='billpay'),
+    path('billpay/', billPay.as_view(), name='billpay'),
+    path('calendar/', Calendar.as_view(), name='calendar'),
 
     path('tactionslist/', TranListView.as_view(), name='taction-list'),
     path('tactions/<int:pk>/', TranDetailView.as_view(), name='taction-detail'),

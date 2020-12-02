@@ -301,7 +301,7 @@ class billSpecialCreate(LoginRequiredMixin, CreateView):
 
 
 class Calendar(TemplateView):
-    template_name = 'calendar.html'
+    template_name = 'Calendar.html'
     
    # def get_queryset(self): #gets only if user matches
     #    return self.model.objects.filter(user_id=self.request.user)
