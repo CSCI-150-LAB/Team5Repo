@@ -12,7 +12,7 @@
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
                         <a href="{% url 'user-list' %}">Account Info</a>
-                        <a href=#>Help</a>
+                        <a href="{% url 'contact' %}">Help</a>
                         <a href="{% url 'logout' %}">Log Out</a>
                     </div>
             </div>
@@ -33,9 +33,9 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'home' %}">User Dashboard</a></li>
-                        <li><a href="{% url 'about' %}">Bills</a></li>
-                        <li><a href="{% url 'contact' %}">Transactions</a></li>
+                        <li><a href="{% url 'landing' %}">User Dashboard</a></li>
+                        <li><a href="{% url 'bill-list' %}">Bills</a></li>
+                        <li><a href="{% url 'taction-list' %}">Transactions</a></li>
                     </ul>
                 </div>
             </nav>
@@ -46,9 +46,9 @@
     <div class="clr"></div>
     <div class="clearfix"></div>
    <br>
-   <input type="button" id="submit" onclick="location.href='/users/billslist';" value="Bills"><br>
+  <!-- <input type="button" id="submit" onclick="location.href='/users/billslist';" value="Bills"><br>
    <input type="button" id="submit" onclick="location.href='/users/tactionslist';" value="Transactions"><br>
-   <input type="button" id="submit" onclick="location.href='/users/userlist';" value="User Info"><br>
+   <input type="button" id="submit" onclick="location.href='/users/userlist';" value="User Info"><br> -->
    <div class="BalanceBox">
         <h1>Current Balance: ${{ cBalance|floatformat:2 }} </h1>
    </div>

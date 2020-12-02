@@ -41,7 +41,7 @@
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
                 <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">My Bills</h2>
+                <h2 class="Welcome">Welcome {{user.username}}</h2>
             </div>
             
         </div>
@@ -49,9 +49,9 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'landing' %}">Dashboard</a></li>
-                        <li><a href="#">Calender</a></li>
-                        <li><a href="#">Set Reminders</a></li>
+                        <li><a href="{% url 'landing' %}">User Dashboard</a></li>
+                        <li><a href="{% url 'bill-list' %}">Bills</a></li>
+                        <li><a href="{% url 'taction-list' %}">Transactions</a></li>
                     </ul>
                 </div>
             </nav>
@@ -134,13 +134,11 @@
                       </form>
                 </td> -->
         </table>
+      
         <div>
-            <input class="button" type="submit" value="Submit" name="">
-        </div>
-        <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a>
-             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'billpay' %}">Bill Pay</a>
-            <h1>Total Grand Amount: $ {{ bTotal|floatformat:2 }} </h1>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a><br>
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'billpay' %}">Bill Pay</a><br>
+            <h1>Accumulative amount: $ {{ bTotal|floatformat:2 }} </h1>
         </div>
     </div>
 

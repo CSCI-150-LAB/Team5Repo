@@ -289,6 +289,31 @@ class sDetailView(DetailView):
 
 
 
+class billSpecialCreate(LoginRequiredMixin, CreateView):
+    model = bills
+    success_url = '/users/calendar'
+    fields = ['bname', 'bamount', 'brecipient', 'duedate']
+
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user
+        return super().form_valid(form)
+
+
+
+class Calendar(TemplateView):
+    template_name = 'calendar.html'
+    
+   # def get_queryset(self): #gets only if user matches
+    #    return self.model.objects.filter(user_id=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(Calendar, self).get_context_data(**kwargs) 
+        #context['cBalance'] = transactions.objects.filter(user_id=self.request.user).aggregate(Sum('amount'))['amount__sum'] or 0.00
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()
+        return context
+
+
+
 def billspay(request):
     return render(request, 'billpay.html')
 
