@@ -78,7 +78,7 @@
                 <th>Total Amount</th>
                 <th>Due Date</th>
                  <th>Modify</th>
-                <th>Autopay</th>
+            
             </tr>
             <tr>
             {% for object in object_list %}
@@ -90,13 +90,7 @@
                 <td> <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
        
-                <td>
-                    <div class="center">
-                        <input type="checkbox">
-                            
-                        </input>
-                    </div>
-                </td>
+               
             </tr>
             <tr>
                  {% empty %}

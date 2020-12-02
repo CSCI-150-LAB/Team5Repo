@@ -258,6 +258,7 @@ def index(request):
 
 
 class billPay(LoginRequiredMixin, CreateView):
+
     template_name= 'billpay.html'
     model = transactions
     #success_url = 'users/tactionslist/'
@@ -276,11 +277,9 @@ class billPay(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(billPay, self).get_context_data(**kwargs) 
-        context['bills_list'] = bills.objects.filter(user_id=self.request.user).order_by('-duedate')
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()#order_by('-duedate')
         context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
         
-
-
         return context
 
 

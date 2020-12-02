@@ -22,7 +22,10 @@
                  <th>Modify</th>
             </tr>
             <tr>
+            
             {% for object in object_list %}
+
+
 
                 <td>{{object.tname}}</td>
                 <td>{{object.recipient}}</td>
@@ -30,6 +33,11 @@
                 <td> {{ object.date }} </td>
                 <td> <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-update' object.id %}">Update</a>
                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'taction-delete' object.id %}">Delete</a>
+                    <form method="POST" action="{% url "taction-delete" object.id %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                
        
             </tr>
             <tr>

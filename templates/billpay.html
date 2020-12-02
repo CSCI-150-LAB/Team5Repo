@@ -80,22 +80,25 @@
                 <th>Pay Now</th>
             </tr>
             <tr>    
-                 <form method ="POST">
-                {% csrf_token %}
-            {% for bills in bills_list %}
+                
+                {% for bills in bills_list %}
            
+
+                 <form method = "POST"> <!--action="{% url "bills-delete" bills.id %}" > -->
+                {% csrf_token %}
+
                 <td>
                  
-     <input type="text" id="tname" name="tname" value="{{bills.bname}}" readonly></td>
+                <input type="text" id="tname" name="tname" value="{{bills.bname}}" readonly></td>
                
                 <td> $<input type="text" id="amount" name="amount" value="-{{bills.bamount}}" readonly></td>
 
-                <td> <input type="text" id="date" name="date" value="{{bills.duedate}}"></td>
+                <td> <input type="text" id="date" name="date" value='{{bills.duedate|date:"Y-m-d"}}'></td>
                 <td> <input type="text" id="recipient" name="recipient" value="{{bills.brecipient}}" readonly></td>
                 <td>
                     <input type="submit" value="Submit"/>
                 </td>
-          
+          </form>
       
 
                    <!-- <div class="center">
@@ -103,7 +106,6 @@
                             
                         </input>
                     </div> -->
-                </td>
             </tr>
             <tr>
 
@@ -111,7 +113,7 @@
             <li>No objects yet.</li>
 
             {% endfor %}
-              </form>
+    
         
               <!--  <td>State Farm</td>
                 <td>$150</td>
@@ -151,11 +153,10 @@
                 </td> -->
         </table>
         <div>
-             </form>
         </div>
         <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a>
-            <h1>Total Grand Amount: $ {{ bTotal|floatformat:2 }} </h1>
+            <h1>Accumulative amount: $ {{ bTotal|floatformat:2 }} </h1>
         </div>
     </div>
 

@@ -11,7 +11,7 @@
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
-                        <a href="{% url 'user-list' %}">Account</a>
+                        <a href="{% url 'user-list' %}">Account Info</a>
                         <a href=#>Help</a>
                         <a href="{% url 'logout' %}">Log Out</a>
                     </div>
@@ -33,9 +33,9 @@
             <nav id="navigation">
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'home' %}">Main</a></li>
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'home' %}">User Dashboard</a></li>
+                        <li><a href="{% url 'about' %}">Bills</a></li>
+                        <li><a href="{% url 'contact' %}">Transactions</a></li>
                     </ul>
                 </div>
             </nav>
