@@ -32,13 +32,15 @@ class transactions(models.Model):
     tname = models.CharField(max_length=20) #decimal field
     recipient = models.CharField(max_length=20)
     date = models.DateField(max_length=20)
+    special = models.IntegerField(default=True)
+
 
 
     def __str__(self): #string representation in db
         return self.tname + ' ' + self.amount
 
-   # def get_absolute_url(self):
-    #    return reverse('bills-delete', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('success_special', kwargs={'pk': self.pk})
 
 
 

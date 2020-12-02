@@ -1,0 +1,5 @@
+<p> Bill successfully paid!</p>
+
+  <form method="POST" action="{% url "bills-delete" object.special %}">
+                        {% csrf_token %}
+                        <input type="submit" value="Return">

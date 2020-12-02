@@ -261,11 +261,10 @@ class billPay(LoginRequiredMixin, CreateView):
 
     template_name= 'billpay.html'
     model = transactions
-    #success_url = 'users/tactionslist/'
-    def get_success_url(self):
-        return reverse('bill-list')
+    #def get_success_url(self):
+     #   return reverse('bill-special')
 
-    fields = ['tname', 'recipient', 'amount', 'date']
+    fields = ['tname', 'recipient', 'amount', 'date', 'special']
     
     #transactions.amount = transactions.amount * - 1
     #transactions.objects.update(amount=Abs(F('amount')))
@@ -281,6 +280,12 @@ class billPay(LoginRequiredMixin, CreateView):
         context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
         
         return context
+
+
+
+class sDetailView(DetailView):
+    model = transactions
+    template_name= 'special.html'
 
 
 

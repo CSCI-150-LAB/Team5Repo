@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import PostCreateView, PostDetailView, PostUpdateView, PostDeleteView, PostListView, \
     BillsCreateView, BillsDeleteView, BillsDetailView, BillsUpdateView, TranCreateView, \
-    TranDeleteView, TranDetailView, TranUpdateView, BillsListView, TranListView, MultipleModelView, billPay \
+    TranDeleteView, TranDetailView, TranUpdateView, BillsListView, TranListView, MultipleModelView, billPay, sDetailView\
 
 
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('signup/', views.signup_, name='signup'),
     #path('landing/', views.landingpage, name='landing'),
     path('landing/', MultipleModelView.as_view(), name='landing'),
+    path('special/<int:pk>/', sDetailView.as_view(), name='success_special'),
 
 
     path('userlist/', PostListView.as_view(), name='user-list'),
