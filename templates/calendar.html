@@ -1,15 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Bills Calendar</title>
+  <link rel="stylesheet" href="{% static 'css/calendarStyle.css' %}">
 
-
-
-<!-- {% for bills in bills_list %}
-
-{{bills.bname}}
-{{bills.bamount}}
-{{bills.brecipient}}
-{{bills.duedate}}
-
--->
-
-{% endblock %}
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div>
+<h1>HELLO WORLD</h1>
+<div id="calendar"></div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<!-- partial -->
+  <script  src="{% static 'js/calendarScript.js' %}"></script>
+<h1>HELLO WORLD</h1>
+</body>
+</html>
