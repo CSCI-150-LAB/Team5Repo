@@ -9,6 +9,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Sum
 from django.db.models.functions import Abs
 from django.urls import reverse_lazy
+from django.core import serializers
+
 
 
 
@@ -72,7 +74,7 @@ class BillsListView (ListView):
     model = bills
 
     def get_queryset(self): #gets only if user matches
-        return self.model.objects.filter(user_id=self.request.user)
+        return self.model.objects.filter(user_id=self.request.user).order_by('-duedate')
 
 
     def get_context_data(self, *args, **kwargs):
@@ -129,7 +131,7 @@ class TranListView (ListView):
     model = transactions
 
     def get_queryset(self): #gets only if user matches
-       return self.model.objects.filter(user_id=self.request.user)
+       return self.model.objects.filter(user_id=self.request.user).order_by('-date')
 
 
 
@@ -305,6 +307,11 @@ class Calendar(TemplateView):
     
    # def get_queryset(self): #gets only if user matches
     #    return self.model.objects.filter(user_id=self.request.user)
+
+
+    json_serializer = serializers.get_serializer("json")()
+    bills = json_serializer.serialize(bills.objects.all())
+
 
     def get_context_data(self, **kwargs):
         context = super(Calendar, self).get_context_data(**kwargs) 

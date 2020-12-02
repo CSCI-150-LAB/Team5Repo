@@ -11,7 +11,10 @@
 <body>
 <!-- partial:index.partial.html -->
 <div>
-<h1>HELLO WORLD</h1>
+ {% for bills in bills_list %}
+
+<h1>HELLO WORLD {{bills.bname}}</h1>
+{% endfor %}
 <div id="calendar"></div>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
