@@ -324,7 +324,18 @@
   var data = [
 	{ eventName: 'Power Bill', calendar: 'Bills', date: '2020-12-3', color: 'blue'}
   ];
-
+  var x = document.getElementById("billinfo").querySelectorAll("p.billdata");
+  for(let i=0; i<x.length; i++){
+	  let eName = x[i].innerHTML;
+	  let eDate = x[i+1].innerHTML;
+	  let obj = new Object;
+	  obj["eventName"] = eName;
+	  obj["calendar"] = "Bills";
+	  obj["date"] = eDate;
+	  obj["color"] = "blue";
+	  i+=1;
+	  data.push(obj);
+  }
   
 
   function addDate(ev) {
