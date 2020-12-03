@@ -9,17 +9,38 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div>
- {% for bills in bills_list %}
+	<!-- partial:index.partial.html -->
+		<section id="fakeheader">
+			<h1 id="title">Bulldog Banking</h1>
+			<div class="Inline">
+				<img src="{% static "images/Logo.png" %}" alt="Image Not found" class="account">
+				<h2>Welcome {{ user.username }} </h2>
+			</div>
+			<div>
+				<nav id="navigation">
+					<div class="menu">
+						<ul>
+							<li><a href="{% url 'landing' %}">User Dashboard</a></li>
+							<li><a href="{% url 'bill-list' %}">Bills</a></li>
+							<li><a href="{% url 'taction-list' %}">Transactions</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</section
+	<div>
+	<div id="calendar"></div>
+	</div>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+	<!-- partial -->
+	<div id="billinfo" style="display:none;">
+	{% for bills in bills_list %}
+		<p class="billdata">{{bills.bname}}</p>
+		<p class="billdata">{{bills.duedate|date:"Y-m-d"}}</p><br>
+	{% endfor %}
+	</div>
 
-<h1>HELLO WORLD {{bills.bname}}</h1>
-{% endfor %}
-<div id="calendar"></div>
-</div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-<!-- partial -->
-  <script  src="{% static 'js/calendarScript.js' %}"></script>
-<h1>HELLO WORLD</h1>
+	<script  src="{% static 'js/calendarScript.js' %}"></script>
+
 </body>
 </html>
