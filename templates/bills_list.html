@@ -1,0 +1,151 @@
+
+<!-- <ul>
+<a href="{% url 'landing' %}"> Homepage</a><br><br>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Create New</a>
+<br>
+        <h5> Bills: </h5>
+        {% for object in object_list %}
+        <li>{{ object.bname }}</li>
+        <li>{{ object.bamount }}</li>
+            <li>{{ object.duedate }}</li>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
+        <hr/>
+        {% empty %}
+        <li>No objects yet.</li>
+        {% endfor %}
+</ul>
+-->
+
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <title>Bill Pay</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
+</head>
+<body>
+    <header>
+        
+        <div class="header">
+            <div class="dropdown">
+                <button class="dropbutton">Settings</button>
+                    <div class="dropcontent">
+                        <a href="{% url 'user-list' %}">Account</a>
+                        <a href="{% url 'contact' %}">Help</a>
+                        <a href="{% url 'about' %}">About</a>
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </div>
+            </div>
+            
+            
+            <h1 id="title">Bulldog Banking</h1>
+            <div class="Inline">
+                <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
+                <h2 class="Welcome">Welcome {{user.username}}</h2>
+            </div>
+            
+        </div>
+        <div>
+            <nav id="navigation">
+                <div class="menu">
+                    <ul>
+                        <li><a href="{% url 'landing' %}">User Dashboard</a></li>
+                        <li class="dropdownNav">
+                            <a href="{% url 'bill-list' %}" class="dropbtn">Bills</a>
+                            <div class="dropdownNav-content">
+                              <a class="dropdownNav-link" href="{% url 'calendar' %}">Calender</a>
+                            </div>
+                        <li><a href="{% url 'taction-list' %}">Transactions</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </header>
+
+    
+    <div class="clr"></div>
+    <div class="clearfix"></div>
+   
+    <div>
+        
+
+
+    </div>
+
+    <div class="box2">
+        <h1>Bills</h1>
+        <table style="width:100%">
+            <tr>
+                <th>Type</th>
+                <th>Recipient</th>
+                <th>Total Amount</th>
+                <th>Due Date</th>
+                 <th>Modify</th>
+            
+            </tr>
+            <tr>
+            {% for object in object_list %}
+
+                <td>{{object.bname}}</td>
+                <td>{{object.brecipient}}</td>
+                <td>${{object.bamount}}</td>
+                <td> {{ object.duedate }} </td>
+                <td> <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
+       
+               
+            </tr>
+            <tr>
+                 {% empty %}
+        <li>No objects yet.</li>
+
+        {% endfor %}
+              <!--  <td>State Farm</td>
+                <td>$150</td>
+                <td>$<input type="payment amount"></td>
+                <td>
+                    <form>
+                        <select>
+                            <option value="Checking">Checking</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Debit">Mastercard</option>
+                            <option value="Debit">Visa</option>
+                            <option value="Credit">Discover</option>
+                            <option value="Credit">American Express</option>
+                        </select>                        
+                      </form>
+                </td>
+                <td>
+                    <div class="center">
+                        <input type="checkbox">
+                    </div>
+                </td>
+            </tr>
+                <td>Spotify</td>
+                <td>$10</td>
+                <td>$<input type="payment amount"></td>
+                <td>
+                    <form>
+                        <select>
+                            <option value="Checking">Checking</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Debit">Mastercard</option>
+                            <option value="Debit">Visa</option>
+                            <option value="Credit">Discover</option>
+                            <option value="Credit">American Express</option>
+                        </select>
+                      </form>
+                </td> -->
+        </table>
+      
+        <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Add New Bill</a><br>
+             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'billpay' %}">Bill Pay</a><br>
+            <h1>Accumulative amount: $ {{ bTotal|floatformat:2 }} </h1>
+        </div>
+    </div>
+
+</body>
+</html>
