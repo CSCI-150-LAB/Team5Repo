@@ -1,63 +1,8 @@
-
-<!-- <ul>
-<a href="{% url 'landing' %}"> Homepage</a><br><br>
-    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-create' %}">Create New</a>
-<br>
-        <h5> Bills: </h5>
-        {% for object in object_list %}
-        <li>{{ object.bname }}</li>
-        <li>{{ object.bamount }}</li>
-            <li>{{ object.duedate }}</li>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-update' object.id %}">Update</a>
-             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'bills-delete' object.id %}">Delete</a>
-        <hr/>
-        {% empty %}
-        <li>No objects yet.</li>
-        {% endfor %}
-</ul>
--->
+{% extends "base.html" %}
+{% block content %}
 
 {% load static %}
 
-<!DOCTYPE html>
-<head>
-    <title>Bill Pay</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
-</head>
-<body>
-    <header>
-        
-        <div class="header">
-            <div class="dropdown">
-                <button class="dropbutton">Settings</button>
-                    <div class="dropcontent">
-                        <a href="{% url 'user-list' %}">Account</a>
-                        <a href="{% url 'contact' %}">Help</a>
-                        <a href="{% url 'logout' %}">Log Out</a>
-                    </div>
-            </div>
-            
-            
-            <h1 id="title">Bulldog Banking</h1>
-            <div class="Inline">
-                <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">Welcome {{user.username}}</h2>
-            </div>
-            
-        </div>
-        <div>
-            <nav id="navigation">
-                <div class="menu">
-                    <ul>
-                        <li><a href="{% url 'landing' %}">User Dashboard</a></li>
-                        <li><a href="{% url 'bill-list' %}">Bills</a></li>
-                        <li><a href="{% url 'taction-list' %}">Transactions</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-    </header>
 
     
     <div class="clr"></div>
@@ -144,3 +89,5 @@
 
 </body>
 </html>
+
+{%endblock%}

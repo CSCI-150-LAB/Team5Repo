@@ -1,108 +1,52 @@
-
 {% extends "base.html" %}
 {% block content %}
-
-<!DOCTYPE html>
-
-
-
-
-
-<html lang="en">
-    <meta charset="utf-8">
-      <head>
-         <style>
-            .output {
-               Font: 1rem 'Fira Sans', sans-siref;
-            }
-			fieldset {
-			  width: 33%;
-			}
-            fieldset input {
-              margin: 1rem 0;
-              width: 61%;
-            }
-			input.alone {
-			  margin: 1rem 0;
-			  width: 21%;
-			}
-            label {
-              display: in-block;
-              width: 20%
-            }
-            input:invalid:not(:placeholder-shown) + span:after {
-              content: '✖';
-              color: #ff0000;
-              padding-left: 5px;
-            }
-            input:valid + span:after {
-              content: '✓';
-              color: #228b22;
-              padding-left: 5px;
-            }
-         </style>
-
-         <title>Bulldog Banking</title>
-      </head>
-  <body>
-    <h1>Register</h1>
-
-    <form method = "post">
-	{% csrf_token %}
-      <fieldset>
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" placeholder="{{ object.fname }}" pattern="[A-z]{1,}" required>
-	    <span class = "validity"></span>
-        <br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" placeholder="{{ object.lname }}" pattern="[A-z]{1,}" required>
-	    <span class = "validity"></span>
-        <br>
-      </fieldset>
-
-      <fieldset>
-	    <label for="address">Street Address:</label><br>
-	    <input type="text" id="address" name="address" placeholder="{{ object.address }}" pattern="\d+\s[A-z]+\s[A-z]+" required>
-	    <span class = "validity"></span>
-        <br>
-        <label for="city">City:</label><br>
-        <input type="text" id="city" name="city" placeholder="{{ object.city }}" pattern="[A-z]{1,}" required>
-	    <span class = "validity"></span>
-        <br>
-
-        <label for="state">State:</label><br>
-        <input type="text" id="state" name="state" placeholder="California" pattern="[A-z]{2,}" required>
-		<span class = "validity"></span>
-        <br>
-
-        <label for="zipcode">Zip Code:</label><br>
-        <input type="text" id = "zipcode"  name="zipcode" placeholder="{{ object.zipcode }}" pattern="[0-9]{5}" size = "5" required>
-	    <span class = "validity"></span>
-        <br>
-      </fieldset>
-
-      <label for="dob"> Date of Birth</label> <br>
-      <input type="text" id="dob" class="alone" name="dob" pattern="(\d{2})+[/]+(\d{2})+[/]+\d{4}" placeholder ="{{ object.dob }}" required>
-	  <span class = "validity"></span>
-      <br>
-
-      <label for="phone">Phone Number:</label><br>
-      <input type="tel" id="phone" class="alone" name="phone" placeholder="{{ object.phone }}" pattern="(\d{3})+[-]+(\d{3})+[-]+\d{4}" size="12" required />
-	  <span class = "validity"></span>
-      <br>
-
-	  <label for="email">Email:</label><br>
-	  <input type="text" id="email" class="alone" name="email" placeholder="{{ object.email }}" pattern="([A-z]{1,})+[@]+([A-z]{1,})+[.]+[A-z]{3}" required/>
-	  <span class = "validity"></span>
+   
+ 
+<div class="contactbox3">
+        <h3>Enter Info</h3>
+        <form method = "post">
+        {% csrf_token %}
+        <br><br>
+        <div><label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" value="{{object.fname}} " pattern="[A-z]{1,}" required>
+      <span class = "validity"></span>
+      </div>
+        <br><br>
+        <div><label for="lname">Last Name:</label><br>
+      <input type="text" id="lname" name="lname" value="{{object.lname}}" pattern="[A-z]{1,}" required>
+      <span class = "validity"></span></div>
+        <br><br>
+        <div><label for="address">Street Address:</label><br>
+        <input type="text" id="address" name="address" value= "{{object.address}}" pattern="\d+\s[A-z]+\s[A-z]+" required>
+      <span class = "validity"></span></div>
       <br><br>
-
-	  <input type="submit" value="Submit"/>
-   </fieldset>
-   </form>
-
-   </body>
-</html>
-
+      <div><label for="city">City:</label><br>
+        <input type="text" id="city" name="city" value= "{{object.city}}" pattern="[A-z]{1,}" required>
+      <span class = "validity"></span></div>
+        <br><br>
+      <div><label for="state">State:</label><br>
+        <input type="text" id="state" name="state" value= "{{object.state}}"  pattern="[A-z]{2,}" required>
+    <span class = "validity"></span></div>
+        <br><br>
+      <div><label for="zipcode">Zipcode:</label><br>
+        <input type="text" id="zipcode" name="zipcode" value= "{{object.zipcode}}" pattern="[0-9]{5}" size = "5" required>
+      <span class = "validity"></span></div>
+      <br><br>
+        <div><label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone" value= "{{object.phone}}" pattern="(\d{3})+[-]+(\d{3})+[-]+\d{4}" size="12" required />
+    <span class = "validity"></span></div>
+         <br><br>
+         <div><label for="dob">Date of Birth:</label><br>
+        <input type="text" id="dob" name="dob" value= "{{object.dob|date:"Y-m-d"}}" pattern="(\d{2})+[/]+(\d{2})+[/]+\d{4}" size="12" required />
+    <span class = "validity"></span></div>
+        <br><br>
+      <div><label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value= "{{object.email}}" pattern="([A-z]{1,})+[@]+([A-z]{1,})+[.]+[A-z]{3}" required/>
+    <span class = "validity"></span></div>
+    <br><br> <input type="submit" value="Submit"/>
+    </div>
+  </form>
+</div>
 
 
 {% endblock %}

@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,15 +10,18 @@
     <header>
         
         <div class="header">
+             {% if user.is_authenticated %}
             <div class="dropdown">
                 <button class="dropbutton">Settings</button>
                     <div class="dropcontent">
                         <a href="{% url 'user-list' %}">Account</a>
                         <a href="{% url 'contact' %}">Help</a>
+                        <a href="{% url 'about' %}">About</a>
                         <a href="{% url 'logout' %}">Log Out</a>
+                       
                     </div>
             </div>
-            
+             {% endif %}
             
             <h1 id="title">Bulldog Banking</h1>
             <div class="Inline">
@@ -29,11 +33,23 @@
         <div>
             <nav id="navigation">
                 <div class="menu">
+                        {% if user.is_authenticated %}
                     <ul>
                         <li><a href="{% url 'landing' %}">User Dashboard</a></li>
-                        <li><a href="{% url 'bill-list' %}">Bills</a></li>
+                        <li class="dropdownNav">
+                            <a href="{% url 'bill-list' %}" class="dropbtn">Bills</a>
+                            <div class="dropdownNav-content">
+                              <a class="dropdownNav-link" href="{% url 'calendar' %}">Calender</a>
+                            </div>
                         <li><a href="{% url 'taction-list' %}">Transactions</a></li>
                     </ul>
+                    {% else %}
+                        <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li> 
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                        {% endif %}
                 </div>
             </nav>
         </div>

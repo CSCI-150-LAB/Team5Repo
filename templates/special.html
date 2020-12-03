@@ -1,5 +1,18 @@
-<p> Bill successfully paid!</p>
+{% extends 'base.html' %}
+{% block content%}
 
-  <form method="POST" action="{% url "bills-delete" object.special %}">
+
+
+
+   <div class="contactbox4">
+ 
+        <p> Bill successfully paid!</p>
+
+ 		 <form method="POST" action="{% url "bills-delete" object.special %}">
                         {% csrf_token %}
                         <input type="submit" value="Return">
+		</form>
+	</div>
+
+
+{%endblock%}

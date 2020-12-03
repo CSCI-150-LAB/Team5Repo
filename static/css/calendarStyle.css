@@ -267,7 +267,7 @@ body {
   height: 30px;
   background: rgba(60, 60, 60, 1);
   line-height: 30px;
-
+  padding-bottom: 1px;
 }
 
 .entry {
@@ -382,4 +382,75 @@ body {
 }
 @keyframes fadeOutShink  {
   to { opacity: 0; padding: 0px; height: 0px; }
+}
+
+#title{
+  text-align: center;
+  background-color: red;
+}
+
+
+
+img.account{
+    width: 120px;
+    height: 90px;
+    margin-right: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#fakeheader {
+  background-color: red;
+  width: 100%;
+  padding-top: 1px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+
+#navigation{
+    background-color: white;
+    color: white;
+}
+
+#navigation ul{
+    padding: 10;
+    list-style: none;
+}
+
+#navigation li{
+    display: inline;
+}
+
+#navigation a:link{
+    color: rgb(158, 5, 5);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    padding-right: 25px;
+    padding-left: 17%;
+}
+
+#navigation a:visited{
+    color: rgb(95, 0, 95);
+}
+
+#navigation a:hover{
+    color: rgb(0,0,238);
+}
+
+#navigation a:active{
+    color: green;
+}
+
+.Inline {
+    display: inline;
+  text-align: center;
+}
+
+html{
+  height: 100%;
+}
+
+#welcome{
+  font-size: 10px;
 }
