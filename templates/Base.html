@@ -14,7 +14,9 @@
                     <div class="dropcontent">
                         <a href="{% url 'user-list' %}">Account</a>
                         <a href="{% url 'contact' %}">Help</a>
+                        <a href="{% url 'about' %}">About</a>
                         <a href="{% url 'logout' %}">Log Out</a>
+                       
                     </div>
             </div>
             
@@ -31,7 +33,11 @@
                 <div class="menu">
                     <ul>
                         <li><a href="{% url 'landing' %}">User Dashboard</a></li>
-                        <li><a href="{% url 'bill-list' %}">Bills</a></li>
+                        <li class="dropdownNav">
+                            <a href="{% url 'bill-list' %}" class="dropbtn">Bills</a>
+                            <div class="dropdownNav-content">
+                              <a class="dropdownNav-link" href="{% url 'calendar' %}">Calender</a>
+                            </div>
                         <li><a href="{% url 'taction-list' %}">Transactions</a></li>
                     </ul>
                 </div>
