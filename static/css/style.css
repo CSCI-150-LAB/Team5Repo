@@ -84,7 +84,7 @@ img.account{
 #navigation ul{
     list-style-type: none;
     margin:0;
-    padding-left: 250px;
+    padding-left: 28%;
     overflow: hidden;
     background-color: white;
 }
@@ -123,6 +123,7 @@ img.account{
     border: 15px solid red;
     padding: 50px;
     margin: 100px;
+	margin-left: 19%;
 }
  
 table{
@@ -267,7 +268,7 @@ input:checked[type="checkbox"]:before{
     padding: 50px;
     padding-bottom: 10px;
     margin: 100px;
-    margin-left: 200px;
+    margin-left: 700px;
     margin-top: 60px;
     
 }
