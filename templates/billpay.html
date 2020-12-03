@@ -2,55 +2,6 @@
 {% block content %}
 
 {% load static %}
-<<<<<<< HEAD
-=======
-
-<!DOCTYPE html>
-<head>
-    <title>Bill Pay</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %} ">
-</head>
-<body>
-    <header>
-        
-        <div class="header">
-            <div class="dropdown">
-                <button class="dropbutton">Settings</button>
-                    <div class="dropcontent">
-                        <a href="{% url 'user-list' %}">Account</a>
-                        <a href="{% url 'contact' %}">Help</a>
-                        <a href="{% url 'about' %}">About</a>
-                        <a href="{% url 'logout' %}">Log Out</a>
-                    </div>
-            </div>
-            
-            
-            <h1 id="title">Bulldog Banking</h1>
-            <div class="Inline">
-                <img src= "{% static "images/Logo.png" %}" alt="Image Not found" class="account">
-                <h2 class="Welcome">Welcome {{user.username}}</h2>
-            </div>
-            
-        </div>
-        <div>
-            <nav id="navigation">
-                <div class="menu">
-                    <ul>
-                        <li><a href="{% url 'landing' %}">User Dashboard</a></li>
-                        <li class="dropdownNav">
-                            <a href="{% url 'bill-list' %}" class="dropbtn">Bills</a>
-                            <div class="dropdownNav-content">
-                              <a class="dropdownNav-link" href="{% url 'calendar' %}">Calender</a>
-                            </div>
-                        <li><a href="{% url 'taction-list' %}">Transactions</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
-    </header>
-
->>>>>>> 9bfbeccebd291b572978d27c097cca9128d9014f
     
     <div class="clr"></div>
     <div class="clearfix"></div>
@@ -69,7 +20,6 @@
                 <th>Total Amount</th>
                 <th>Due Date</th>
                 <th>Pay To</th>
-                <th>Bill Id</th>
                 <th>Pay Now</th>
             </tr>
             <tr>    
@@ -88,7 +38,7 @@
 
                 <td> <input type="text" id="date" name="date" value='{{bills.duedate|date:"Y-m-d"}}' readonly></td>
                 <td> <input type="text" id="recipient" name="recipient" value="{{bills.brecipient}}" readonly></td>
-                <td> <input type="text" id="special" name="special" value="{{bills.id}}" readonly></td>
+                <input type="text" id="special" name="special" style="display:none;" value="{{bills.id}}" readonly>
                 <td>
                     <input type="submit" value="Submit">
                 </td>
