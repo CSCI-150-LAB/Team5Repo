@@ -101,7 +101,7 @@ class BillsDetailView(DetailView):
 class BillsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = bills
     success_url = '/users/billslist'
-    fields = ['bname', 'bamount', 'brecpient', 'duedate']
+    fields = ['bname', 'bamount', 'brecipient', 'duedate']
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user
@@ -278,7 +278,7 @@ class billPay(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(billPay, self).get_context_data(**kwargs) 
-        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()#order_by('-duedate')
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).order_by('-duedate')
         context['bTotal'] = bills.objects.filter(user_id=self.request.user).aggregate(Sum('bamount'))['bamount__sum'] or 0.00
         
         return context
@@ -334,7 +334,7 @@ class MultipleModelView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(MultipleModelView, self).get_context_data(**kwargs) 
         context['cBalance'] = transactions.objects.filter(user_id=self.request.user).aggregate(Sum('amount'))['amount__sum'] or 0.00
-        context['bills_list'] = bills.objects.filter(user_id=self.request.user).all()
+        context['bills_list'] = bills.objects.filter(user_id=self.request.user).order_by('-duedate')
         return context
 
   

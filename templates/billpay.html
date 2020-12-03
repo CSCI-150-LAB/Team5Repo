@@ -77,7 +77,6 @@
                 <th>Total Amount</th>
                 <th>Due Date</th>
                 <th>Pay To</th>
-                <th>Bill Id</th>
                 <th>Pay Now</th>
             </tr>
             <tr>    
@@ -96,7 +95,7 @@
 
                 <td> <input type="text" id="date" name="date" value='{{bills.duedate|date:"Y-m-d"}}' readonly></td>
                 <td> <input type="text" id="recipient" name="recipient" value="{{bills.brecipient}}" readonly></td>
-                <td> <input type="text" id="special" name="special" value="{{bills.id}}" readonly></td>
+                <input type="text" id="special" name="special" style="display:none;" value="{{bills.id}}" readonly>
                 <td>
                     <input type="submit" value="Submit">
                 </td>
